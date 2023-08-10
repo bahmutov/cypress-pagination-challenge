@@ -12,6 +12,17 @@ There is a starter spec [cypress/e2e/spec.cy.js](./cypress/e2e/spec.cy.js) that 
 
 **Bonus question:** can you solve this problem in several different ways?
 
+## Use
+
+Requires Node v16+. No need to start anything else.
+
+Install dependencies and open Cypress
+
+```
+$ npm install
+$ npx cypress open
+```
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2023

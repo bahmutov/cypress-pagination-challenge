@@ -12,7 +12,8 @@ it('clicks the Next button until we get to the last page', () => {
   // we get to the very last page?
   // button selector "[value=next]"
   cy.get('[value=next]') // keep clicking!
-  // confirm we are on the very last page of the table
+
+  cy.log('**confirm we are on the last page**')
   cy.get('[value=next]').should('be.disabled')
   cy.get('[value=last]').should('be.disabled')
 })
