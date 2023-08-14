@@ -1,5 +1,7 @@
 # cypress-pagination-challenge
 
+📺 Watch the introduction in [Cypress Pagination Challenge](https://youtu.be/DgUIfQLFOcM)
+
 Can you implement the following test using Cypress? You can write plain Cypress code or use [any plugins](https://cypress.tips/courses/cypress-plugins), but the code has to be:
 
 1. correct
