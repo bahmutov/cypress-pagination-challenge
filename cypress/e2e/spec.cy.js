@@ -2,6 +2,8 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 
+import { recurse } from 'cypress-recurse'
+
 beforeEach(() => {
   cy.visit('public/index.html')
 })
@@ -11,7 +13,13 @@ it('clicks the Next button until we get to the last page', () => {
   // can you click the "Next" button until
   // we get to the very last page?
   // button selector "[value=next]"
-  cy.get('[value=next]') // keep clicking!
+  recurse(
+    () => {
+      cy.get('[value=next]').click()
+      return cy.get('[value=next]')
+    },
+    ($button) => $button.attr('disabled') === 'disabled',
+  )
 
   cy.log('**confirm we are on the last page**')
   cy.get('[value=next]').should('be.disabled')
