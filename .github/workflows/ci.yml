@@ -1,0 +1,6 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    # https://github.com/bahmutov/cypress-workflows
+    uses: bahmutov/cypress-workflows/.github/workflows/standard.yml@v1
