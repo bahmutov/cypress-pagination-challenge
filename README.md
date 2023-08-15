@@ -14,6 +14,17 @@ There is a starter spec [cypress/e2e/spec.cy.js](./cypress/e2e/spec.cy.js) that 
 
 **Bonus question:** can you solve this problem in several different ways?
 
+## Edge cases
+
+After solving the current problem, check if your solution still works if the table has only 3 entries instead of 23, and thus the next button is disabled at the start. Modify the `app.js` [file](https://github.com/bahmutov/cypress-pagination-challenge/blob/main/public/app.js#L6)
+
+```diff
+- for (let i = 0; i < 23; i++) {
++ for (let i = 0; i < 3; i++) {
+```
+
+Does your solution work?
+
 ## Use
 
 Requires Node v16+. No need to start anything else.
