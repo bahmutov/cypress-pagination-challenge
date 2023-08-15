@@ -11,7 +11,12 @@ it('clicks the Next button until we get to the last page', () => {
   // can you click the "Next" button until
   // we get to the very last page?
   // button selector "[value=next]"
-  cy.get('[value=next]') // keep clicking!
+
+  cy.get('.pagecontroller.pagecontroller-num')
+    .should('have.length.above', 0)
+    .each((_, index, $pages) => {
+      if (index !== $pages.length - 1) cy.get('[value=next]').click()
+    })
 
   cy.log('**confirm we are on the last page**')
   cy.get('[value=next]').should('be.disabled')
