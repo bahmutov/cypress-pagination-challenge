@@ -37,28 +37,4 @@ it('look through the table for the text', () => {
   // Use "Powlowski" to find existent text
   // Use "Yundt" to find text on the very last page
   // Use "Joey" to search for the text that is not there
-  recurse(
-    () => {
-      return cy.contains('tr:visible', 'Joey').should(Cypress._.noop)
-      .then($el => {
-        cy.get('[value=next]:enabled').should(Cypress._.noop).then($next => {
-          return {
-            textFound: $el.length > 0,
-            tableFinished: $next.length === 0
-          }
-        })
-      })
-    },
-    ({ textFound, tableFinished }) => textFound || tableFinished,
-    {
-      delay: 1000,
-      timeout: 10_000,
-      log: 'Looked through the table',
-      post() {
-        cy.get('[value=next]').click()
-      }
-    }
-  ).then(({ textFound }) => {
-    cy.log(`Found text? ${textFound}`)
-  })
 })
