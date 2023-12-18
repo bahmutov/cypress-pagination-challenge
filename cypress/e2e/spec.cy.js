@@ -26,7 +26,7 @@ it('find text in the paginated table', () => {
 // what if the text may not be there?
 // Can you modify the above test to yield
 // "textFound" boolean instead of failing?
-it.only('look through the table for the text', () => {
+it('look through the table for the text', () => {
   // go through the table while the Next button is enabled
   // check if there is a row with given text
   // DO NOT FAIL if the text is not found
