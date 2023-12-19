@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Pick times</title>
+    <!-- Include Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      #times div {
+        width: 50px;
+        margin-top: 1rem;
+        padding: 5px 10px;
+        border: 1px solid gray;
+        border-radius: 3px;
+      }
+      #times div.available {
+        background-color: green;
+      }
+      button {
+        padding: 5px;
+      }
+      button[selected] {
+        border: 2px solid black;
+        background-color: darkgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Available times</h1>
+      </header>
+      <main>
+        <div>
+          <button id="morning">
+            <i class="fa fa-coffee fa-2x" aria-hidden="true"></i>
+          </button>
+          <button id="day">
+            <i class="fa fa-sun-o fa-2x" aria-hidden="true"></i>
+          </button>
+          <button id="evening">
+            <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
+          </button>
+          <button id="night">
+            <i class="fa fa-moon-o fa-2x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id="times"></div>
+      </main>
+    </div>
+    <script>
+      const timesEl = document.getElementById('times')
+      function setSelectedButton(buttonId = 'morning') {
+        document.getElementById('morning').removeAttribute('selected')
+        document.getElementById('day').removeAttribute('selected')
+        document.getElementById('evening').removeAttribute('selected')
+        document.getElementById('night').removeAttribute('selected')
+        document.getElementById(buttonId).setAttribute('selected', 'selected')
+      }
+
+      function setMorningEvents() {
+        timesEl.innerHTML = `
+          <div>7:00</div>
+          <div>8:00</div>
+          <div>9:00</div>
+          <div>10:00</div>
+          <div>11:00</div>
+        `
+        setSelectedButton('morning')
+      }
+      function setDayEvents() {
+        timesEl.innerHTML = `
+          <div>12:00</div>
+          <div class="available">13:00</div>
+          <div class="available">14:00</div>
+          <div>15:00</div>
+          <div>16:00</div>
+        `
+        setSelectedButton('day')
+      }
+      function setEveningEvents() {
+        timesEl.innerHTML = `
+          <div>17:00</div>
+          <div>18:00</div>
+          <div class="available">19:00</div>
+          <div>20:00</div>
+          <div>21:00</div>
+        `
+        setSelectedButton('evening')
+      }
+      function setNightEvents() {
+        timesEl.innerHTML = `
+          <div>22:00</div>
+          <div>23:00</div>
+          <div>00:00</div>
+          <div class="available">01:00</div>
+          <div class="available">02:00</div>
+        `
+        setSelectedButton('night')
+      }
+      document
+        .getElementById('morning')
+        .addEventListener('click', setMorningEvents)
+      document.getElementById('day').addEventListener('click', setDayEvents)
+      document
+        .getElementById('evening')
+        .addEventListener('click', setEveningEvents)
+      document.getElementById('night').addEventListener('click', setNightEvents)
+      setMorningEvents()
+    </script>
+  </body>
+</html>

@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "cypress": "13.6.1",
+    "cypress-map": "1.21.4",
     "cypress-recurse": "1.35.2",
     "prettier": "3.1.0"
   }
