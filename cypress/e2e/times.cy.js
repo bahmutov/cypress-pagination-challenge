@@ -12,7 +12,7 @@ it('collects all available times', () => {
   // can you find the problem in the following test?
   // something is wrong leading to the flaky tests
   timeSelectors.forEach((timeButton) => {
-    cy.get(timeButton).click().should('have.attr', 'selected')
+    cy.get(timeButton).click()
     cy.get('#times .available')
       .should(Cypress._.noop)
       .map('innerText')
