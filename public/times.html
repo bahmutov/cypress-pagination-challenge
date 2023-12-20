@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -67,44 +67,52 @@
       }
 
       function setMorningEvents() {
-        timesEl.innerHTML = `
-          <div>7:00</div>
-          <div>8:00</div>
-          <div>9:00</div>
-          <div>10:00</div>
-          <div>11:00</div>
-        `
-        setSelectedButton('morning')
+        setTimeout(() => {
+          timesEl.innerHTML = `
+            <div>7:00</div>
+            <div>8:00</div>
+            <div>9:00</div>
+            <div>10:00</div>
+            <div>11:00</div>
+          `
+          setSelectedButton('morning')
+        }, Math.random() * 1000)
       }
       function setDayEvents() {
-        timesEl.innerHTML = `
-          <div>12:00</div>
-          <div class="available">13:00</div>
-          <div class="available">14:00</div>
-          <div>15:00</div>
-          <div>16:00</div>
-        `
-        setSelectedButton('day')
+        setTimeout(() => {
+          timesEl.innerHTML = `
+            <div>12:00</div>
+            <div class="available">13:00</div>
+            <div class="available">14:00</div>
+            <div>15:00</div>
+            <div>16:00</div>
+          `
+          setSelectedButton('day')
+        }, Math.random() * 1000)
       }
       function setEveningEvents() {
-        timesEl.innerHTML = `
-          <div>17:00</div>
-          <div>18:00</div>
-          <div class="available">19:00</div>
-          <div>20:00</div>
-          <div>21:00</div>
-        `
-        setSelectedButton('evening')
+        setTimeout(() => {
+          timesEl.innerHTML = `
+            <div>17:00</div>
+            <div>18:00</div>
+            <div class="available">19:00</div>
+            <div>20:00</div>
+            <div>21:00</div>
+          `
+          setSelectedButton('evening')
+        }, Math.random() * 1000)
       }
       function setNightEvents() {
-        timesEl.innerHTML = `
-          <div>22:00</div>
-          <div>23:00</div>
-          <div>00:00</div>
-          <div class="available">01:00</div>
-          <div class="available">02:00</div>
-        `
-        setSelectedButton('night')
+        setTimeout(() => {
+          timesEl.innerHTML = `
+            <div>22:00</div>
+            <div>23:00</div>
+            <div>00:00</div>
+            <div class="available">01:00</div>
+            <div class="available">02:00</div>
+          `
+          setSelectedButton('night')
+        }, Math.random() * 1000)
       }
       document
         .getElementById('morning')

@@ -9,12 +9,23 @@ it('collects all available times', () => {
   cy.visit('public/times.html')
   const availableTimes = []
   const timeSelectors = ['#morning', '#day', '#evening', '#night']
-  // click on each time selector button
-  // and grab the available times elements
-  // Note: there might be no available times!
-  // collect all time slots as text in the "availableTimes" array
-  //
+  // can you find the problem in the following test?
+  // something is wrong leading to the flaky tests
+  timeSelectors.forEach((timeButton) => {
+    cy.get(timeButton).click().should('have.attr', 'selected')
+    cy.get('#times .available')
+      .should(Cypress._.noop)
+      .map('innerText')
+      .print('available %o')
+      .then((times) => {
+        availableTimes.push(...times)
+      })
+  })
   // confirm there are at least 3 available time slots
   // and that the first 3 values are
   // 13:00, 14:00, and 19:00
+  cy.wrap(availableTimes)
+    .should('have.length.greaterThan', 2)
+    .invoke('slice', 0, 3)
+    .should('deep.equal', ['13:00', '14:00', '19:00'])
 })
